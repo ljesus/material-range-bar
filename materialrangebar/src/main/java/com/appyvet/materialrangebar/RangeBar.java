@@ -450,22 +450,22 @@ public class RangeBar extends View {
     protected void onDraw(Canvas canvas) {
 
         super.onDraw(canvas);
-
-        mBar.draw(canvas);
-        if (mIsRangeBar) {
-            mConnectingLine.draw(canvas, mLeftThumb, mRightThumb);
-            if (drawTicks) {
-                mBar.drawTicks(canvas, mExpandedPinRadius, mRightThumb, mLeftThumb);
+        if (visibility == View.VISIBLE) {
+            mBar.draw(canvas);
+            if (mIsRangeBar) {
+                mConnectingLine.draw(canvas, mLeftThumb, mRightThumb);
+                if (drawTicks) {
+                    mBar.drawTicks(canvas, mExpandedPinRadius, mRightThumb, mLeftThumb);
+                }
+                mLeftThumb.draw(canvas);
+            } else {
+                mConnectingLine.draw(canvas, getMarginLeft(), mRightThumb);
+                if (drawTicks) {
+                    mBar.drawTicks(canvas, mExpandedPinRadius, mRightThumb);
+                }
             }
-            mLeftThumb.draw(canvas);
-        } else {
-            mConnectingLine.draw(canvas, getMarginLeft(), mRightThumb);
-            if (drawTicks) {
-                mBar.drawTicks(canvas, mExpandedPinRadius, mRightThumb);
-            }
+            mRightThumb.draw(canvas);
         }
-        mRightThumb.draw(canvas);
-
     }
 
     @Override
