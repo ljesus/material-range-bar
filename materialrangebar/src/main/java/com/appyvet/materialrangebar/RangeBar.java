@@ -450,7 +450,7 @@ public class RangeBar extends View {
     protected void onDraw(Canvas canvas) {
 
         super.onDraw(canvas);
-        if (visibility == View.VISIBLE) {
+        if (isShown()) {
             mBar.draw(canvas);
             if (mIsRangeBar) {
                 mConnectingLine.draw(canvas, mLeftThumb, mRightThumb);
